@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.19 - 2024.04.15
+### Added
+* Stable release for Craft CMS 5
+
 ## 1.0.18 - 2024.03.19
 ### Fixed
 * Fixed an issue that would cause the `SectionShorthandFieldsAutocomplete` to throw an exception if you were running PHP < 8.0 ([#7](https://github.com/nystudio107/craft-code-editor/issues/7))
