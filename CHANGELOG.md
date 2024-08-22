@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.20 - 2024.08.21
+### Fixed
+* Fixed an issue where the autocomplete endpoint could throw a `500` error when attempting to parse properties such as the `sso` property with an insufficient edition of Craft
+
 ## 1.0.19 - 2024.04.15
 ### Added
 * Stable release for Craft CMS 5
