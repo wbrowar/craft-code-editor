@@ -20,6 +20,7 @@ use ReflectionException;
 use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionUnionType;
+use Throwable;
 use yii\base\Behavior;
 use yii\base\InvalidConfigException;
 use yii\di\ServiceLocator;
@@ -282,7 +283,11 @@ abstract class ObjectParserAutocomplete extends Autocomplete implements ObjectPa
                 // Recurse through if this is an object
                 if (isset($object->$propertyName) && is_object($object->$propertyName)) {
                     if (!$customField && !in_array($propertyName, self::EXCLUDED_PROPERTY_NAMES, true)) {
-                        $this->parseObject($propertyName, $object->$propertyName, $recursionDepth, $path);
+                        try {
+                            $this->parseObject($propertyName, $object->$propertyName, $recursionDepth, $path);
+                        } catch (Throwable $e) {
+                            // That's fine
+                        }
                     }
                 }
             }
